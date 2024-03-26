@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration packages="org.example" status="error">
+<Configuration packages="org.example" status="trace">
     <Appenders>
         <CustomAppender name="CustomAppender">
             <PatternLayout disableAnsi="false">
