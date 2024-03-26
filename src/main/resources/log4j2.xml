@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="org.example" status="error">
+    <Appenders>
+        <CustomAppender name="CustomAppender">
+            <PatternLayout disableAnsi="false">
+                <Pattern>
+                    %style{[%date{HH:mm:ss}]}{green} [%thread] %highlight{%-5level}{FATAL=white, ERROR=red, WARN=yellow, INFO=blue, DEBUG=green, TRACE=cyan} %style{%logger{15}}{Cyan} %msg%n
+                </Pattern>
+            </PatternLayout>
+        </CustomAppender>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="CustomAppender" level="INFO"/>
+        </Root>
+    </Loggers>
+</Configuration>
