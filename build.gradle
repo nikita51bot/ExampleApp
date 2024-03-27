@@ -12,19 +12,21 @@ repositories {
 
 dependencies {
     implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
-    implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
-//    annotationProcessor 'org.apache.logging.log4j:log4j-core:2.23.1'
-
     implementation 'org.jline:jline:3.25.1'
+    implementation project(':appender')
 
     compileOnly 'org.projectlombok:lombok:1.18.32'
+
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
 }
 
 shadowJar {
     manifest {
         attributes(
-                'Main-Class': 'org.example.Main'
+                'Main-Class': 'org.example.Main',
+                'Multi-Release': 'true'
         )
     }
+    transform(com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformer)
+    mergeServiceFiles()
 }
